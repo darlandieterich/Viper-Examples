@@ -1,0 +1,6 @@
+[params]
+  [params.account]
+  usr="john"
+  pwd="abcdfeg"
+[log]
+  debug=true
