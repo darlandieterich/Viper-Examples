@@ -13,7 +13,7 @@ func main() {
   if err != nil {
 	  fmt.Println("Error config file: %s \n", err)
   } else {
-    debug := viper.Get("log.debug")
+    debug := viper.GetBool("log.debug")
     fmt.Println("Debug:", debug)
   }   
 }
