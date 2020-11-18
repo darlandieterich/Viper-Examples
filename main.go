@@ -5,14 +5,15 @@ import (
   "github.com/spf13/viper"
 )
 
-func main() {
-  fmt.Println("init")
-  err := viper.ReadInConfig() // Find and read the config file
-  if err != nil { // Handle errors reading the config file
-	  fmt.Errorf("Error config file: %s \n", err)
+func main() {  
+  viper.SetConfigName("config")
+  viper.SetConfigType("toml")
+  viper.AddConfigPath(".")
+  err := viper.ReadInConfig()
+  if err != nil {
+	  fmt.Println("Error config file: %s \n", err)
   } else {
-    debug := viper.Get("log")
-    fmt.Println("Debug", debug)
-  } 
-  fmt.Println("end") 
+    debug := viper.Get("log.debug")
+    fmt.Println("Debug:", debug)
+  }   
 }
