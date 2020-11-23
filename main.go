@@ -15,5 +15,13 @@ func main() {
   } else {
     debug := viper.GetBool("log.debug")
     fmt.Println("Debug:", debug)
+    
+    var config map[string]interface{}
+    err := viper.Unmarshal(&config)
+    if err != nil {
+      fmt.Println("Error Unmarshal toml")
+    } else {
+      fmt.Println("Interface", config["params"])
+    }    
   }   
 }
